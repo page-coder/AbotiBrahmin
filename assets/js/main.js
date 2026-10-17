@@ -1,4 +1,3 @@
-// your code goes here
 /**
  * AbotiBrahmin Encyclopedia — Client-side Navigation, Search, and Bilingual UI
  */
