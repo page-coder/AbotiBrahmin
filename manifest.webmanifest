@@ -1,0 +1,21 @@
+{
+  "name": "AbotiBrahmin Heritage Encyclopedia",
+  "short_name": "AbotiBrahmin",
+  "description": "Bilingual digital encyclopedia of the Aboti Brahmin community of Dwarka, Gujarat.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#F5EFE3",
+  "theme_color": "#54252B",
+  "icons": [
+    {
+      "src": "assets/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
