@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Surnames &amp; Gotra Directory — AbotiBrahmin Encyclopedia</title>
+  <meta name="description" content="Verified directory of documented Aboti Brahmin family surnames, alternative spellings, gotras, kuldevis, and ancestral villages in Porbandar, Ranavav, and Dwarka." />
+  <link rel="canonical" href="https://page-coder.github.io/AbotiBrahmin/surnames.html" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Aboti Brahmin Surnames Directory",
+    "url": "https://page-coder.github.io/AbotiBrahmin/surnames.html",
+    "description": "Directory of documented Aboti Brahmin surnames and gotra affiliations."
+  }
+  </script>
+</head>
+<body>
+  <div class="reading-progress-container" aria-hidden="true"><div class="reading-progress-bar" id="readingProgressBar"></div></div>
+
+  <div class="top-info-strip">
+    <div class="top-strip-inner">
+      <div class="top-strip-tagline"><span>🏛</span> <span>AbotiBrahmin Digital Heritage Encyclopedia</span></div>
+      <div class="top-strip-controls">
+        <div class="strip-btn-group">
+          <button type="button" class="strip-btn active" id="langBtnEn" onclick="setLanguage('en')">English</button>
+          <button type="button" class="strip-btn" id="langBtnGu" onclick="setLanguage('gu')">ગુજરાતી</button>
+        </div>
+        <div class="strip-btn-group">
+          <button type="button" class="strip-btn" id="fontBtnSm" onclick="setFontSize('small')">A-</button>
+          <button type="button" class="strip-btn active" id="fontBtnMd" onclick="setFontSize('standard')">A</button>
+          <button type="button" class="strip-btn" id="fontBtnLg" onclick="setFontSize('large')">A+</button>
+        </div>
+        <div class="strip-btn-group">
+          <button type="button" class="strip-btn" id="themeToggleBtn" onclick="toggleTheme()">☾ Dark Mode</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-wordmark">
+        <div class="brand-title-row">
+          <span class="brand-main">AbotiBrahmin</span>
+          <span class="brand-gu">અબોટી બ્રાહ્મણ જ્ઞાનકોશ</span>
+        </div>
+        <span class="brand-sub">Surnames &amp; Gotras Registry</span>
+      </a>
+      <button type="button" class="mobile-menu-toggle" id="mobileMenuBtn">☰ Menu</button>
+      <nav class="main-nav" id="mainNavContainer">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="history.html" class="nav-link">History</a>
+        <a href="dwarka.html" class="nav-link">Dwarka</a>
+        <a href="surnames.html" class="nav-link active">Surnames</a>
+        <a href="frequently-asked-questions.html" class="nav-link">FAQ</a>
+        <a href="sources.html" class="nav-link">Sources</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <form class="header-search-wrap" id="headerSearchForm">
+        <input type="search" id="headerSearchInput" class="header-search-input" placeholder="Search..." />
+        <button type="submit" class="header-search-btn">Search</button>
+      </form>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <div class="breadcrumb-bar">
+      <div class="breadcrumb-trail">
+        <a href="index.html">Home</a> <span>/</span> <span>Surnames &amp; Gotras Directory</span>
+      </div>
+      <span class="epistemic-badge epistemic-documented">Documented Community Register</span>
+    </div>
+
+    <article class="article-main-sheet">
+      <header class="article-header-block">
+        <h1 class="article-h1">Aboti Brahmin Surnames &amp; Gotra Affiliations</h1>
+        <p class="article-subtitle" data-lang-en="Documented family names, village associations in Saurashtra, alternative spellings, and genealogical cautions." data-lang-gu="દસ્તાવેજી પારિવારિક અટકો, સૌરાષ્ટ્રના ગામો સાથેના સંબંધો, વૈકલ્પિક જોડણી અને વંશાવળી સંશોધનના નિયમો.">Documented family names, village associations in Saurashtra, alternative spellings, and genealogical cautions.</p>
+      </header>
+
+      <div class="archival-callout">
+        <strong>Genealogical Methodological Note:</strong> In Gujarat, several surnames (such as <em>Joshi</em>, <em>Mehta</em>, <em>Odedara</em>, or <em>Tukadiya</em>) are shared across multiple distinct communities (including other Brahmin branches, agrarian, and merchant groups). <strong>A surname alone does not prove community membership.</strong> Historical affiliation requires corroboration via family vanshavali, kuldevi worship, or matrimonial records.
+      </div>
+
+      <div style="margin-bottom:1.5rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+        <input type="text" id="surnameFilterInput" placeholder="Filter surnames (e.g. Shiyani, Bhod, Kashyap)..." style="padding:0.5rem 0.85rem;border:1px solid var(--border-subtle);border-radius:4px;background:var(--parchment);color:var(--text-primary);width:320px;font-family:var(--font-ui);" onkeyup="filterSurnameTable()" />
+        <span style="font-size:0.82rem;color:var(--text-secondary);" id="surnameMatchCount">Showing all verified surnames</span>
+      </div>
+
+      <div class="encyclo-table-wrap">
+        <div class="encyclo-table-caption">Verified Aboti Brahmin Surnames Registry</div>
+        <table class="encyclo-table" id="surnamesTable">
+          <thead>
+            <tr>
+              <th>Surname (English / Gujarati)</th>
+              <th>Alternative Spellings</th>
+              <th>Primary Villages (Saurashtra)</th>
+              <th>Traditional Gotra Association</th>
+              <th>Documented Status &amp; Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Shiyani</strong> (શિયાણી)</td>
+              <td>Siyani, Shiyanee</td>
+              <td>Ranavav, Bhod, Dwarka</td>
+              <td>Kashyap / Bhargava</td>
+              <td>Documented in community directories; active in pilgrimage &amp; trade.</td>
+            </tr>
+            <tr>
+              <td><strong>Mokariya</strong> (મોકરિયા)</td>
+              <td>Mokaria, Mookariya</td>
+              <td>Mokar, Ranavav, Porbandar</td>
+              <td>Bharadwaj / Kashyap</td>
+              <td>Toponymic surname derived from Mokar village in Ranavav taluka.</td>
+            </tr>
+            <tr>
+              <td><strong>Tukadiya</strong> (તુકડિયા)</td>
+              <td>Tukadia, Tookadiya</td>
+              <td>Tukda Gosa, Bhod, Ranavav</td>
+              <td>Kashyap / Parashar</td>
+              <td>Toponymic connection to Tukda Gosa village near Gosabara wetland.</td>
+            </tr>
+            <tr>
+              <td><strong>Bhuva</strong> (ભુવા)</td>
+              <td>Bhuwa, Bhuvo</td>
+              <td>Bhod, Rana Vadvala, Jamnagar</td>
+              <td>Shandilya / Kashyap</td>
+              <td>Traditional priestly and temple ritual roles.</td>
+            </tr>
+            <tr>
+              <td><strong>Joshi</strong> (જોશી)</td>
+              <td>Jyotishi, Josi</td>
+              <td>Dwarka, Porbandar, Junagadh</td>
+              <td>Garg / Bharadwaj</td>
+              <td>Traditional astrological (jyotisha) and ritual functionaries.</td>
+            </tr>
+            <tr>
+              <td><strong>Kuchhadiya</strong> (કુછડિયા)</td>
+              <td>Kuchhadia</td>
+              <td>Kuchhadi, Ranavav, Porbandar</td>
+              <td>Kashyap</td>
+              <td>Associated with coastal Porbandar village roots.</td>
+            </tr>
+            <tr>
+              <td><strong>Borichiya</strong> (બોરીચિયા)</td>
+              <td>Borichia, Boricha</td>
+              <td>Boricha, Ranavav</td>
+              <td>Vashistha / Kashyap</td>
+              <td>Toponymic link to Boricha area in Saurashtra.</td>
+            </tr>
+            <tr>
+              <td><strong>Baleja</strong> (બલેજા)</td>
+              <td>Balejaa</td>
+              <td>Baleja, Ranavav taluka</td>
+              <td>Bharadwaj</td>
+              <td>Longstanding agricultural landholdings in Ranavav.</td>
+            </tr>
+            <tr>
+              <td><strong>Jamariya</strong> (જામરિયા)</td>
+              <td>Jamaria</td>
+              <td>Jamra, Porbandar, Dwarka</td>
+              <td>Kashyap</td>
+              <td>Documented in regional marriage circles and temple records.</td>
+            </tr>
+            <tr>
+              <td><strong>Goriya</strong> (ગોરિયા)</td>
+              <td>Goria</td>
+              <td>Gosa, Porbandar</td>
+              <td>Gautam / Shandilya</td>
+              <td>Associated with traditional purohita duties.</td>
+            </tr>
+            <tr>
+              <td><strong>Kothari</strong> (કોઠારી)</td>
+              <td>Kotari</td>
+              <td>Dwarka, Junagadh</td>
+              <td>Vatsa / Kashyap</td>
+              <td>Historic administrative or granary (kothar) stewardship.</td>
+            </tr>
+            <tr>
+              <td><strong>Mehta</strong> (મહેતા)</td>
+              <td>Mehtaa</td>
+              <td>Porbandar, Rajkot, Mumbai</td>
+              <td>Kashyap</td>
+              <td>Honorific administrative title adopted across generations.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>AbotiBrahmin Archive</h4>
+        <p style="font-size:0.85rem;color:#D8CCBA;">Documenting surnames, gotras, and village genealogies with academic rigor.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="surnames.html">Surnames</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Sources</h4>
+        <ul class="footer-links">
+          <li><a href="sources.html">Bibliography</a></li>
+          <li><a href="historical-references.html">References</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li><a href="contact.html">Submit Record</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    function filterSurnameTable() {
+      const input = document.getElementById("surnameFilterInput").value.toLowerCase();
+      const rows = document.querySelectorAll("#surnamesTable tbody tr");
+      let count = 0;
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        if (text.includes(input)) {
+          row.style.display = "";
+          count++;
+        } else {
+          row.style.display = "none";
+        }
+      });
+      document.getElementById("surnameMatchCount").textContent = `Showing ${count} matching surname(s)`;
+    }
+  </script>
+</body>
+</html>
