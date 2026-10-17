@@ -8,6 +8,14 @@
   <meta property="og:title" content="AbotiBrahmin — History, Heritage and Knowledge Encyclopedia" />
   <meta property="og:description" content="Comprehensive Wikipedia-style bilingual cultural encyclopedia of the Aboti Brahmin community, Dwarka sacred geography, and western Indian heritage." />
   <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://page-coder.github.io/AbotiBrahmin/" />
+  <meta property="og:url" content="https://page-coder.github.io/AbotiBrahmin/" />
+  <meta property="og:site_name" content="AbotiBrahmin Digital Heritage Encyclopedia" />
+  <meta property="og:locale" content="en_IN" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="AbotiBrahmin — History, Heritage and Knowledge Encyclopedia" />
+  <meta name="twitter:description" content="A bilingual English–Gujarati archive exploring Aboti Brahmin history, Dwarka, gotras, surnames, traditions, and documented heritage." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&family=Noto+Serif+Gujarati:wght@600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
@@ -17,6 +25,7 @@
     "@type": "WebSite",
     "name": "AbotiBrahmin Heritage Encyclopedia",
     "alternateName": "અબોટીબ્રાહ્મણ ડિજિટલ જ્ઞાનકોશ",
+    "url": "https://page-coder.github.io/AbotiBrahmin/",
     "inLanguage": ["en", "gu"],
     "description": "An independent digital archive of Aboti Brahmin history, traditions, Dwarka sacred geography, and cultural heritage."
   }
@@ -1130,6 +1139,8 @@ body {
   padding: 0;
   cursor: pointer;
   text-align: left;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .footer-link-btn:hover {
@@ -1337,7 +1348,7 @@ body {
   <div id="heroSectionMount"></div>
 
   <!-- Main Encyclopedia Content Mount -->
-  <main class="main-container" id="mainContentMount"></main>
+  <main class="main-container" id="mainContentMount" aria-label="AbotiBrahmin bilingual encyclopedia content"></main>
 
   <!-- H. Organized Footer -->
   <footer class="site-footer" id="footerMount"></footer>
@@ -1417,6 +1428,7 @@ function setLanguage(lang) {
   document.documentElement.lang = appState.lang;
   safeSetStorage('aboti_lang', appState.lang);
   renderAll();
+  updatePageSEO();
 }
 
 function toggleTheme() {
@@ -1449,15 +1461,128 @@ function setFontSize(size) {
 function navigateToHome() {
   appState.view = 'home';
   appState.categoryFilter = 'all';
+  syncArticleRoute();
   window.scrollTo({ top: 0, behavior: 'smooth' });
   renderAll();
+  updatePageSEO();
 }
 
 function navigateToCategory(cat) {
   appState.view = 'directory';
   appState.categoryFilter = cat;
+  syncArticleRoute();
   window.scrollTo({ top: 0, behavior: 'smooth' });
   renderAll();
+  updatePageSEO();
+}
+
+function updatePageSEO() {
+  const lang = appState.lang || 'en';
+  const rootUrl = 'https://page-coder.github.io/AbotiBrahmin/';
+  let title = 'AbotiBrahmin — Bilingual Heritage Encyclopedia & Digital Knowledge Archive (Dwarka & Gujarat)';
+  let description = 'An independent bilingual English and Gujarati digital encyclopedia documenting Aboti Brahmin history, Dwarka temple traditions, sacred geography, gotras, surnames, oral heritage, and social history.';
+  if (appState.view === 'article') {
+    const article = ENCYCLOPEDIA_ARTICLES.find(a => a.id === appState.activeArticleId);
+    if (article) {
+      title = `${article.title[lang] || article.title.en} | AbotiBrahmin Heritage Encyclopedia`;
+      description = (article.summary && (article.summary[lang] || article.summary.en)) || description;
+    }
+  } else if (appState.view === 'directory') {
+    title = lang === 'gu' ? 'તમામ લેખો અને વિષય સૂચિ | અબોટીબ્રાહ્મણ' : 'All Articles & Subject Index | AbotiBrahmin';
+    description = lang === 'gu' ? 'અબોટી બ્રાહ્મણ ઇતિહાસ, દ્વારકા, ગોત્ર, અટક, પરંપરા અને દસ્તાવેજી સંદર્ભો અંગેના તમામ જ્ઞાનકોશ લેખો.' : 'Browse the AbotiBrahmin bilingual encyclopedia index covering history, Dwarka, gotras, surnames, traditions, and archival sources.';
+  }
+  document.title = title;
+  const desc = document.querySelector('meta[name="description"]');
+  if (desc) desc.setAttribute('content', String(description).replace(/\s+/g, ' ').slice(0, 300));
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.setAttribute('content', title);
+  const ogDesc = document.querySelector('meta[property="og:description"]');
+  if (ogDesc) ogDesc.setAttribute('content', String(description).replace(/\s+/g, ' ').slice(0, 300));
+  const canonical = document.querySelector('link[rel="canonical"]');
+  if (canonical) canonical.setAttribute('href', rootUrl);
+  const ogUrl = document.querySelector('meta[property="og:url"]');
+  if (ogUrl) ogUrl.setAttribute('content', rootUrl);
+  updateStructuredData();
+}
+
+// Keep structured data aligned with the actual bilingual encyclopedia content.
+// Fragment URLs help readers share articles, but they remain part of one HTML page.
+function updateStructuredData() {
+  const rootUrl = 'https://page-coder.github.io/AbotiBrahmin/';
+  const lang = appState.lang || 'en';
+  const listSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    'name': lang === 'gu' ? 'અબોટીબ્રાહ્મણ જ્ઞાનકોશના લેખો' : 'AbotiBrahmin Encyclopedia Articles',
+    'description': lang === 'gu'
+      ? 'અબોટી બ્રાહ્મણ ઇતિહાસ, દ્વારકા, ગોત્ર, અટક, પરંપરા અને સાંસ્કૃતિક વારસા અંગેના દ્વિભાષી લેખો.'
+      : 'Bilingual reference articles about Aboti Brahmin history, Dwarka, gotras, surnames, traditions, and cultural heritage.',
+    'itemListOrder': 'https://schema.org/ItemListOrderAscending',
+    'numberOfItems': ENCYCLOPEDIA_ARTICLES.length,
+    'itemListElement': ENCYCLOPEDIA_ARTICLES.map((article, index) => ({
+      '@type': 'ListItem',
+      'position': index + 1,
+      'name': (article.title && (article.title[lang] || article.title.en)) || article.slug || article.id,
+      'url': rootUrl + '#article-' + encodeURIComponent(article.id),
+      'description': String((article.summary && (article.summary[lang] || article.summary.en)) || '').replace(/\s+/g, ' ').slice(0, 500)
+    }))
+  };
+  const activeArticle = appState.view === 'article'
+    ? ENCYCLOPEDIA_ARTICLES.find(article => article.id === appState.activeArticleId)
+    : null;
+  const schemas = [listSchema];
+  if (activeArticle) {
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      'headline': (activeArticle.title && (activeArticle.title[lang] || activeArticle.title.en)) || activeArticle.slug,
+      'description': String((activeArticle.summary && (activeArticle.summary[lang] || activeArticle.summary.en)) || '').replace(/\s+/g, ' ').slice(0, 500),
+      'inLanguage': lang === 'gu' ? 'gu' : 'en',
+      'articleSection': (activeArticle.categoryLabel && (activeArticle.categoryLabel[lang] || activeArticle.categoryLabel.en)) || activeArticle.category || 'Heritage',
+      'mainEntityOfPage': rootUrl + '#article-' + encodeURIComponent(activeArticle.id),
+      'isPartOf': { '@type': 'WebSite', 'name': 'AbotiBrahmin Heritage Encyclopedia', 'url': rootUrl }
+    });
+  }
+  let schemaNode = document.getElementById('dynamic-encyclopedia-schema');
+  if (!schemaNode) {
+    schemaNode = document.createElement('script');
+    schemaNode.type = 'application/ld+json';
+    schemaNode.id = 'dynamic-encyclopedia-schema';
+    document.head.appendChild(schemaNode);
+  }
+  schemaNode.textContent = JSON.stringify(schemas);
+}
+
+function syncArticleRoute(push = true) {
+  const root = window.location.pathname + window.location.search;
+  let target = root;
+  if (appState.view === 'article' && appState.activeArticleId) target += '#article-' + encodeURIComponent(appState.activeArticleId);
+  else if (appState.view === 'directory') target += '#directory';
+  if (push && (window.location.pathname + window.location.search + window.location.hash) !== target) {
+    window.history.pushState({ view: appState.view, articleId: appState.activeArticleId || null }, '', target);
+  } else if (!push && (window.location.pathname + window.location.search + window.location.hash) !== target) {
+    window.history.replaceState({ view: appState.view, articleId: appState.activeArticleId || null }, '', target);
+  }
+}
+
+function restoreRouteFromAddress() {
+  const hash = decodeURIComponent((window.location.hash || '').slice(1));
+  if (hash.startsWith('article-')) {
+    const id = hash.slice('article-'.length);
+    if (ENCYCLOPEDIA_ARTICLES.some(a => a.id === id)) {
+      appState.view = 'article';
+      appState.activeArticleId = id;
+    } else {
+      appState.view = 'home';
+    }
+  } else if (hash === 'directory') {
+    appState.view = 'directory';
+    appState.categoryFilter = 'all';
+  } else {
+    appState.view = 'home';
+  }
+  renderAll();
+  updatePageSEO();
 }
 
 function openArticle(articleId, sectionId) {
@@ -1465,7 +1590,9 @@ function openArticle(articleId, sectionId) {
   if (!found) return;
   appState.view = 'article';
   appState.activeArticleId = articleId;
+  syncArticleRoute();
   renderAll();
+  updatePageSEO();
   if (sectionId) {
     setTimeout(() => {
       const secEl = document.getElementById('sec-' + sectionId);
@@ -1486,6 +1613,7 @@ function triggerSearch(queryText) {
   appState.view = 'search';
   window.scrollTo({ top: 0, behavior: 'smooth' });
   renderAll();
+  updatePageSEO();
 }
 
 function scrollToSection(sectionDomId) {
@@ -2170,14 +2298,14 @@ function renderFooter() {
       <div class="footer-col">
         <h4>${isGu ? 'મુખ્ય જ્ઞાનકોશ લેખો (૧–૬)' : 'Core Monographs (1–6)'}</h4>
         <ul class="footer-links">
-          ${ENCYCLOPEDIA_ARTICLES.slice(0, 6).map(a => `<li><button type="button" class="footer-link-btn" onclick="openArticle('${a.id}')">§ ${a.number}. ${a.title[lang]}</button></li>`).join('')}
+          ${ENCYCLOPEDIA_ARTICLES.slice(0, 6).map(a => `<li><a class="footer-link-btn" href="#article-${a.id}" onclick="event.preventDefault();openArticle('${a.id}')">§ ${a.number}. ${a.title[lang]}</a></li>`).join('')}
         </ul>
       </div>
 
       <div class="footer-col">
         <h4>${isGu ? 'સંશોધન અને સંદર્ભ લેખો (૭–૧૩)' : 'Reference & Archival Pages (7–13)'}</h4>
         <ul class="footer-links">
-          ${ENCYCLOPEDIA_ARTICLES.slice(6).map(a => `<li><button type="button" class="footer-link-btn" onclick="openArticle('${a.id}')">§ ${a.number}. ${a.title[lang]}</button></li>`).join('')}
+          ${ENCYCLOPEDIA_ARTICLES.slice(6).map(a => `<li><a class="footer-link-btn" href="#article-${a.id}" onclick="event.preventDefault();openArticle('${a.id}')">§ ${a.number}. ${a.title[lang]}</a></li>`).join('')}
         </ul>
       </div>
 
@@ -2250,8 +2378,12 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  renderAll();
+  restoreRouteFromAddress();
+  syncArticleRoute(false);
+  updatePageSEO();
 });
+
+window.addEventListener('popstate', restoreRouteFromAddress);
 
 </script>
 </body>
