@@ -1396,3 +1396,16 @@ button.strip-btn { font-family: var(--font-ui); }
 @media (max-width: 1180px) { .main-nav { order: 3; flex-basis: 100%; justify-content: flex-start; } }
 /* Header scrolls with the page instead of staying fixed */
 .site-header { position: static; }
+/* Show only a Menu button; links appear when it is clicked */
+.mobile-menu-toggle { display: inline-block; }
+.main-nav {
+  display: none;
+  order: 3;
+  flex-basis: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border-subtle);
+}
+.main-nav.mobile-open { display: flex; }
