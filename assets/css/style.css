@@ -1409,3 +1409,12 @@ button.strip-btn { font-family: var(--font-ui); }
   border-top: 1px solid var(--border-subtle);
 }
 .main-nav.mobile-open { display: flex; }
+/* Header always stays at the top while the page scrolls */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+}
+
+/* Open menu: one single list (no second column) */
+.main-nav { flex-wrap: nowrap; }
