@@ -1,56 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AbotiBrahmin — Bilingual Heritage Encyclopedia (Dwarka &amp; Gujarat)</title>
-  <meta name="description" content="An independent bilingual (English and Gujarati) digital encyclopedia documenting the history, traditions, sacred geography, gotras, surnames, and social development of the Aboti Brahmin community." />
-  <link rel="canonical" href="https://page-coder.github.io/AbotiBrahmin/" />
-  <meta property="og:title" content="AbotiBrahmin — Digital Heritage Encyclopedia" />
-  <meta property="og:description" content="Comprehensive bilingual cultural encyclopedia of the Aboti Brahmin community of Dwarka, Porbandar, and Saurashtra." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://page-coder.github.io/AbotiBrahmin/" />
-  <meta name="robots" content="index,follow" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&family=Noto+Serif+Gujarati:wght@600;700&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AbotiBrahmin — Digital Heritage Encyclopedia (Dwarka &amp; Gujarat)</title>
+  <meta name="description" content="Independent bilingual digital encyclopedia exploring the history, traditions, Dwarkadhish temple seva, gotras, surnames, and culture of the Aboti Brahmin community.">
+  <link rel="canonical" href="https://page-coder.github.io/AbotiBrahmin/index.html">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600&family=Noto+Sans+Gujarati:wght@400;600&family=Noto+Serif+Gujarati:wght@600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "AbotiBrahmin Heritage Encyclopedia",
-    "alternateName": "અબોટીબ્રાહ્મણ ડિજિટલ જ્ઞાનકોશ",
+    "alternateName": "અબોટી બ્રાહ્મણ ડિજિટલ જ્ઞાનકોશ",
     "url": "https://page-coder.github.io/AbotiBrahmin/",
     "inLanguage": ["en", "gu"],
-    "description": "An independent digital archive of Aboti Brahmin history, traditions, Dwarka sacred geography, and cultural heritage."
+    "description": "An independent bilingual knowledge encyclopedia on Aboti Brahmin history, sacred geography, and community heritage in Gujarat."
   }
   </script>
 </head>
 <body>
-  <div class="reading-progress-container" aria-hidden="true">
-    <div class="reading-progress-bar" id="readingProgressBar"></div>
-  </div>
+  <div class="reading-progress-container"><div class="reading-progress-bar" id="readingProgressBar"></div></div>
 
-  <div class="top-info-strip" role="region" aria-label="Archive Controls">
+  <div class="top-info-strip">
     <div class="top-strip-inner">
-      <div class="top-strip-tagline">
-        <span>🏛</span>
-        <span data-lang-en="An independent digital archive of Aboti Brahmin history, traditions, and cultural heritage." data-lang-gu="અબોટી બ્રાહ્મણ ઇતિહાસ, પરંપરા અને સાંસ્કૃતિક વારસાનો સ્વતંત્ર ડિજિટલ જ્ઞાનકોશ.">An independent digital archive of Aboti Brahmin history, traditions, and cultural heritage.</span>
-      </div>
-      <div class="top-strip-controls">
-        <div class="strip-btn-group" role="group" aria-label="Language Selection">
+      <div>🏛 <span data-en="Independent bilingual encyclopedia of Aboti Brahmin heritage &amp; sacred geography." data-gu="અબોટી બ્રાહ્મણ ઇતિહાસ અને પવિત્ર ભૂગોળનો સ્વતંત્ર દ્વિભાષી જ્ઞાનકોશ."></span></div>
+      <div style="display:flex;gap:0.5rem;align-items:center;">
+        <div class="strip-btn-group">
           <button type="button" class="strip-btn active" id="langBtnEn" onclick="setLanguage('en')">English</button>
           <button type="button" class="strip-btn" id="langBtnGu" onclick="setLanguage('gu')">ગુજરાતી</button>
         </div>
-        <div class="strip-btn-group" role="group" aria-label="Text Size Adjustment">
-          <button type="button" class="strip-btn" id="fontBtnSm" onclick="setFontSize('small')">A-</button>
-          <button type="button" class="strip-btn active" id="fontBtnMd" onclick="setFontSize('standard')">A</button>
-          <button type="button" class="strip-btn" id="fontBtnLg" onclick="setFontSize('large')">A+</button>
-        </div>
-        <div class="strip-btn-group">
-          <button type="button" class="strip-btn" id="themeToggleBtn" onclick="toggleTheme()">☾ Dark Mode</button>
-        </div>
+        <button type="button" class="strip-btn" onclick="toggleTheme()">☾ / ☼</button>
       </div>
     </div>
   </div>
@@ -58,186 +41,135 @@
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="brand-wordmark">
-        <div class="brand-title-row">
-          <span class="brand-main">AbotiBrahmin</span>
-          <span class="brand-gu">અબોટી બ્રાહ્મણ જ્ઞાનકોશ</span>
-        </div>
-        <span class="brand-sub">Digital Heritage Encyclopedia • Dwarka &amp; Gujarat</span>
+        <span class="brand-main">AbotiBrahmin</span>
+        <span class="brand-gu">અબોટી બ્રાહ્મણ જ્ઞાનકોશ</span>
+        <span class="brand-sub">Heritage Encyclopedia • Dwarka &amp; Gujarat</span>
       </a>
-
-      <button type="button" class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation">☰ Menu</button>
-
-      <nav class="main-nav" id="mainNavContainer" aria-label="Primary Navigation">
-        <a href="index.html" class="nav-link active">Home</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="history.html" class="nav-link">History</a>
-        <a href="dwarka.html" class="nav-link">Dwarka</a>
-        <a href="surnames.html" class="nav-link">Surnames</a>
-        <a href="frequently-asked-questions.html" class="nav-link">FAQ</a>
-        <a href="sources.html" class="nav-link">Sources</a>
-        <a href="contact.html" class="nav-link">Contact</a>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link active" data-en="Home" data-gu="મુખપૃષ્ઠ">Home</a>
+        <a href="history.html" class="nav-link" data-en="History" data-gu="ઇતિહાસ">History</a>
+        <a href="dwarka.html" class="nav-link" data-en="Dwarka" data-gu="દ્વારકા">Dwarka</a>
+        <a href="culture.html" class="nav-link" data-en="Culture" data-gu="સંસ્કૃતિ">Culture</a>
+        <a href="traditions.html" class="nav-link" data-en="Traditions" data-gu="પરંપરાઓ">Traditions</a>
+        <a href="surnames.html" class="nav-link" data-en="Surnames" data-gu="અટક / શાખા">Surnames</a>
+        <a href="historical-records.html" class="nav-link" data-en="Records" data-gu="અભિલેખ">Records</a>
+        <a href="places.html" class="nav-link" data-en="Places" data-gu="તીર્થક્ષેત્રો">Places</a>
+        <a href="sources.html" class="nav-link" data-en="Sources" data-gu="સંદર્ભ">Sources</a>
+        <a href="faq.html" class="nav-link" data-en="FAQ" data-gu="પ્રશ્નોત્તરી">FAQ</a>
       </nav>
-
-      <form class="header-search-wrap" id="headerSearchForm" role="search">
-        <input type="search" id="headerSearchInput" class="header-search-input" placeholder="Search encyclopedia..." aria-label="Search Encyclopedia" />
-        <button type="submit" class="header-search-btn">Search</button>
+      <form class="header-search-wrap" id="headerSearchForm">
+        <input type="search" id="headerSearchInput" class="header-search-input" placeholder="Search Dwarka, gotra, history..." aria-label="Search">
+        <button type="submit" class="header-search-btn">Go</button>
       </form>
     </div>
   </header>
 
   <section class="hero-editorial">
     <div class="hero-grid">
-      <div class="hero-copy">
-        <span class="hero-kicker" data-lang-en="Open Digital Knowledge Archive" data-lang-gu="ઓપન ડિજિટલ જ્ઞાનકોશ">Open Digital Knowledge Archive</span>
-        <h1 class="hero-title" data-lang-en="A Living Heritage of Dwarka &amp; Saurashtra" data-lang-gu="દ્વારકા અને સૌરાષ્ટ્રનો ઐતિહાસિક વારસો">A Living Heritage of Dwarka &amp; Saurashtra</h1>
-        <p class="hero-lead" data-lang-en="Documenting the history, temple traditions, sacred geography, gotras, surnames, and social evolution of the Aboti Brahmin community through verified archival evidence and cultural memory." data-lang-gu="અબોટી બ્રાહ્મણ સમુદાયના ઇતિહાસ, દ્વારકાધીશ મંદિર સેવા, પવિત્ર ભૂગોળ, ગોત્ર, અટકો અને સામાજિક વિકાસનું દસ્તાવેજી પુરાવા અને સાંસ્કૃતિક સ્મૃતિ સાથે પરિપૂર્ણ સંકલન.">Documenting the history, temple traditions, sacred geography, gotras, surnames, and social evolution of the Aboti Brahmin community through verified archival evidence and cultural memory.</p>
-        <div class="hero-actions">
-          <a href="history.html" class="btn-primary-heritage" data-lang-en="Explore History →" data-lang-gu="ઇતિહાસ વાંચો →">Explore History →</a>
-          <a href="surnames.html" class="btn-secondary-heritage" data-lang-en="Browse Surnames" data-lang-gu="અટકોની નિર્દેશિકા">Browse Surnames</a>
-        </div>
-        <div class="hero-stats-strip">
-          <div class="hero-stat-item">
-            <strong>1228 CE</strong>
-            <span data-lang-en="Earliest Record" data-lang-gu="પ્રારંભિક નોંધ">Earliest Record</span>
-          </div>
-          <div class="hero-stat-item">
-            <strong>1557 CE</strong>
-            <span data-lang-en="Dwarka Charter" data-lang-gu="દ્વારકા સમાધાન">Dwarka Charter</span>
-          </div>
-          <div class="hero-stat-item">
-            <strong>1901</strong>
-            <span data-lang-en="Junagadh Census" data-lang-gu="જૂનાગઢ ગણતરી">Junagadh Census</span>
-          </div>
-          <div class="hero-stat-item">
-            <strong>12+</strong>
-            <span data-lang-en="Knowledge Modules" data-lang-gu="જ્ઞાન વિભાગો">Knowledge Modules</span>
-          </div>
+      <div>
+        <span class="epistemic-badge epistemic-documented" style="margin-bottom:0.75rem;background:#E08B3E;color:#FFF;" data-en="Curated Digital Knowledge Repository" data-gu="પ્રમાણભૂત ડિજિટલ જ્ઞાન અભિલેખાગાર">Curated Digital Knowledge Repository</span>
+        <h1 class="hero-title" data-en="Heritage, Lineages, and Sacred Geography of the Aboti Brahmins" data-gu="અબોટી બ્રાહ્મણ સમુદાયનો ઇતિહાસ, પરંપરાઓ અને પવિત્ર ભૂગોળ">Heritage, Lineages, and Sacred Geography of the Aboti Brahmins</h1>
+        <p class="hero-lead" data-en="A rigorous bilingual reference encyclopedia documenting centuries of ritual guardianship at Dwarkadhish Temple, migration corridors across Rajasthan and Saurashtra, agrarian consolidation, and community lineages." data-gu="દ્વારકાધીશ મંદિરની પ્રાચીન પૂજા-સેવા, રાજસ્થાન અને સૌરાષ્ટ્ર વચ્ચેના ઐતિહાસિક સ્થળાંતર માર્ગો, કૃષિ વ્યવસાય અને વંશાવળીઓને પ્રમાણભૂત રીતે આલેખતો દ્વિભાષી જ્ઞાનકોશ."></p>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+          <a href="history.html" class="header-search-btn" style="text-decoration:none;padding:0.6rem 1.2rem;background:var(--saffron);font-size:0.9rem;" data-en="Explore Historical Records" data-gu="ઇતિહાસ અને અભિલેખો વાંચો">Explore Historical Records</a>
+          <a href="surnames.html" class="header-search-btn" style="text-decoration:none;padding:0.6rem 1.2rem;background:transparent;border:1px solid #FFF;" data-en="Browse Surnames &amp; Gotras" data-gu="અટક અને ગોત્ર સૂચિ જુઓ">Browse Surnames &amp; Gotras</a>
         </div>
       </div>
-
       <div class="hero-visual-frame">
-        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='320' viewBox='0 0 600 320'><rect width='600' height='320' fill='%2338251F'/><path d='M300 40 L350 140 L330 140 L380 260 L220 260 L270 140 L250 140 Z' fill='%23C87528'/><circle cx='300' cy='35' r='8' fill='%23B99756'/><rect x='100' y='260' width='400' height='30' fill='%2354252B'/><text x='300' y='305' fill='%23F5EFE3' font-family='sans-serif' font-size='13' text-anchor='middle'>Dwarkadhish Temple Precinct &amp; Gomti Ghat (Representative Architecture)</text></svg>" alt="Architectural representation of Dwarkadhish Temple spire and Gomti Ghat" />
-        <div class="hero-visual-caption" data-lang-en="Representative architectural silhouette of Dwarkadhish Temple (Jagat Mandir) on the Gomti River at Dwarka, Gujarat—the historic center of Aboti Brahmin ritual service." data-lang-gu="દ્વારકાધીશ જગત મંદિર અને ગોમતી ઘાટનું સ્થાપત્ય પ્રતિનિધિત્વ—જે અબોટી બ્રાહ્મણ સમુદાયની ઐતિહાસિક સેવા-પૂજાનું કેન્દ્રસ્થાન છે.">Representative architectural silhouette of Dwarkadhish Temple (Jagat Mandir) on the Gomti River at Dwarka, Gujarat—the historic center of Aboti Brahmin ritual service.</div>
+        <img src="assets/images/dwarkadhish-temple.webp" alt="Dwarkadhish Jagat Mandir and Gomti Ghat, Dwarka" width="800" height="450">
+        <div style="padding:0.75rem;font-size:0.78rem;color:#EAE0D0;background:#231714;">
+          <strong data-en="Gomti Ghat and Jagat Mandir, Dwarka" data-gu="ગોમતી ઘાટ અને જગત મંદિર, દ્વારકા">Gomti Ghat and Jagat Mandir, Dwarka</strong> — 
+          <span data-en="Historic epicenter of Aboti Brahmin liturgical service and western Indian pilgrimage traditions." data-gu="અબોટી બ્રાહ્મણ મંદિર સેવા પૂજા અને પશ્ચિમ ભારતીય તીર્થ પરંપરાનું કેન્દ્ર."></span>
+        </div>
       </div>
     </div>
   </section>
 
   <main class="main-container">
-    <div class="section-header-bar">
-      <div>
-        <h2 class="section-heading" data-lang-en="Encyclopedia Directory" data-lang-gu="જ્ઞાનકોશ વિભાગો">Encyclopedia Directory</h2>
-        <span class="section-subheading" data-lang-en="Explore the chapters of Aboti Brahmin heritage, records, and society" data-lang-gu="અબોટી બ્રાહ્મણ વારસા, ઇતિહાસ અને સમાજના તમામ પ્રકરણો">Explore the chapters of Aboti Brahmin heritage, records, and society</span>
-      </div>
-      <span class="epistemic-badge epistemic-documented">Documented Archive</span>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--gold);padding-bottom:0.5rem;margin-bottom:1.75rem;">
+      <h2 style="font-family:var(--font-heading);font-size:1.85rem;margin:0;color:var(--temple-brown);" data-en="Encyclopedia Core Subjects" data-gu="જ્ઞાનકોશના મુખ્ય વિષયો">Encyclopedia Core Subjects</h2>
+      <span style="font-size:0.85rem;color:var(--text-secondary);" data-en="10 Research Modules with Complete Primary Citations" data-gu="સંપૂર્ણ સંદર્ભો સાથેના ૧૦ સંશોધન વિષયો"></span>
     </div>
 
-    <div class="topics-grid">
-      <div class="topic-card">
-        <span class="topic-card-kicker">Historiography</span>
-        <h3>History &amp; Origins</h3>
-        <p data-lang-en="Medieval 1228 CE Rajasthan records, migration from Dvaravati, 16th-century temple records, and Pancha-Gauda classification." data-lang-gu="ઇ.સ. ૧૨૨૮ રાજસ્થાન દસ્તાવેજો, દ્વારવતીથી સ્થળાંતર, ૧૬મી સદીના મંદિર વહીવટી દસ્તાવેજો અને પંચ-ગૌડ વર્ગીકરણ.">Medieval 1228 CE Rajasthan records, migration from Dvaravati, 16th-century temple records, and Pancha-Gauda classification.</p>
-        <a href="history.html" class="read-article-link">Read Chapter →</a>
-      </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:1.5rem;">
+      <article style="background:var(--surface-card);border:1px solid var(--border-subtle);border-top:3px solid var(--maroon);padding:1.35rem;border-radius:4px;">
+        <span class="epistemic-badge epistemic-documented">Documented Records</span>
+        <h3 style="font-family:var(--font-heading);font-size:1.35rem;margin:0.5rem 0;"><a href="history.html" style="color:var(--temple-brown);text-decoration:none;">1. History &amp; Medieval Records</a></h3>
+        <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.6;" data-en="Examining Rajasthan epigraphs c. 1228 CE (VS 1306) recording migration from Dvaravati, 16th-century Dwarka charters, and colonial gazetteers." data-gu="ઇ.સ. ૧૨૨૮ના રાજસ્થાનના દસ્તાવેજો, ૧૬મી સદીના દ્વારકા કરારો અને ગેઝેટિયરોનું ઐતિહાસિક પૃથક્કરણ."></p>
+        <a href="history.html" style="color:var(--saffron);font-weight:600;font-size:0.84rem;text-decoration:none;" data-en="Read Article →" data-gu="વિગતે વાંચો →">Read Article →</a>
+      </article>
 
-      <div class="topic-card">
-        <span class="topic-card-kicker">Tradition</span>
-        <h3>Ancestry &amp; Lineage</h3>
-        <p data-lang-en="Bhagwan Parshuram heritage, Shrimali and Sakaldwipiya connections, and distinction between oral memory and epigraphy." data-lang-gu="ભગવાન પરશુરામ વંશાવળી, શ્રીમાળી અને શાકદ્વીપીય સંબંધો તથા મૌખિક અને દસ્તાવેજી ઇતિહાસ વચ્ચેનો તફાવત.">Bhagwan Parshuram heritage, Shrimali and Sakaldwipiya connections, and distinction between oral memory and epigraphy.</p>
-        <a href="origins.html" class="read-article-link">Read Chapter →</a>
-      </div>
+      <article style="background:var(--surface-card);border:1px solid var(--border-subtle);border-top:3px solid var(--maroon);padding:1.35rem;border-radius:4px;">
+        <span class="epistemic-badge epistemic-documented">Ritual &amp; Sacred Geography</span>
+        <h3 style="font-family:var(--font-heading);font-size:1.35rem;margin:0.5rem 0;"><a href="dwarka.html" style="color:var(--temple-brown);text-decoration:none;">2. Dwarka &amp; Jagat Mandir</a></h3>
+        <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.6;" data-en="The historic liturgical role of Aboti priests at Dwarkadhish Temple, Janmashtami celebrations, and institutional pilgrim centers." data-gu="દ્વારકાધીશ મંદિરમાં પૂજા-સેવાનો વારસો, જન્માષ્ટમી મહોત્સવ અને યાત્રાળુ સેવા કેન્દ્રો."></p>
+        <a href="dwarka.html" style="color:var(--saffron);font-weight:600;font-size:0.84rem;text-decoration:none;" data-en="Read Article →" data-gu="વિગતે વાંચો →">Read Article →</a>
+      </article>
 
-      <div class="topic-card">
-        <span class="topic-card-kicker">Sacred Geography</span>
-        <h3>Dwarka &amp; The Temple</h3>
-        <p data-lang-en="Dwarkadhish Temple (Jagat Mandir), Gomti Ghat, Bet Dwarka, Shravana Janmashtami puja, and pilgrim vadi." data-lang-gu="દ્વારકાધીશ જગત મંદિર, ગોમતી ઘાટ, બેટ દ્વારકા, જન્માષ્ટમી સેવા-પૂજા અને અબોટી બ્રાહ્મણ વાડી.">Dwarkadhish Temple (Jagat Mandir), Gomti Ghat, Bet Dwarka, Shravana Janmashtami puja, and pilgrim vadi.</p>
-        <a href="dwarka.html" class="read-article-link">Read Chapter →</a>
-      </div>
+      <article style="background:var(--surface-card);border:1px solid var(--border-subtle);border-top:3px solid var(--maroon);padding:1.35rem;border-radius:4px;">
+        <span class="epistemic-badge epistemic-traditional">Family Genealogy</span>
+        <h3 style="font-family:var(--font-heading);font-size:1.35rem;margin:0.5rem 0;"><a href="surnames.html" style="color:var(--temple-brown);text-decoration:none;">3. Surnames &amp; Gotra Directory</a></h3>
+        <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.6;" data-en="Documented surnames (Shiyani, Mokariya, Odedara, Joshi, etc.), Vedic gotra affiliations, and village roots in Ranavav and Porbandar." data-gu="પ્રમાણભૂત અટક સૂચિ (શિયાણી, મોકરીયા, ઓડેદરા, જોશી વગેરે), વૈદિક ગોત્ર અને ગામોના મૂળ."></p>
+        <a href="surnames.html" style="color:var(--saffron);font-weight:600;font-size:0.84rem;text-decoration:none;" data-en="Read Article →" data-gu="વિગતે વાંચો →">Read Article →</a>
+      </article>
 
-      <div class="topic-card">
-        <span class="topic-card-kicker">Worship</span>
-        <h3>Religious Traditions</h3>
-        <p data-lang-en="Vaishnavism, Gopal Upasana, Kuldevi veneration (Chamunda, Momai, Harsiddhi), and annual festive calendars." data-lang-gu="વૈષ્ણવ ભક્તિ, ગોપાલ ઉપાસના, કુળદેવી પૂજા (ચામુંડા, મોમાઈ, હરસિદ્ધિ) અને તહેવારો.">Vaishnavism, Gopal Upasana, Kuldevi veneration (Chamunda, Momai, Harsiddhi), and annual festive calendars.</p>
-        <a href="religious-traditions.html" class="read-article-link">Read Chapter →</a>
-      </div>
+      <article style="background:var(--surface-card);border:1px solid var(--border-subtle);border-top:3px solid var(--maroon);padding:1.35rem;border-radius:4px;">
+        <span class="epistemic-badge epistemic-documented">Social Transformation</span>
+        <h3 style="font-family:var(--font-heading);font-size:1.35rem;margin:0.5rem 0;"><a href="culture.html" style="color:var(--temple-brown);text-decoration:none;">4. Livelihoods &amp; Entrepreneurship</a></h3>
+        <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.6;" data-en="The economic shift from temple dakshina to self-reliant farming in coastal Saurashtra and trusted angadia courier networks across India." data-gu="મંદિર-સેવાથી સૌરાષ્ટ્રમાં ખેતીવાડી અને અખિલ ભારતીય આંગડિયા-કુરિયર વ્યવસાય તરફનો વિકાસ."></p>
+        <a href="culture.html" style="color:var(--saffron);font-weight:600;font-size:0.84rem;text-decoration:none;" data-en="Read Article →" data-gu="વિગતે વાંચો →">Read Article →</a>
+      </article>
 
-      <div class="topic-card">
-        <span class="topic-card-kicker">Culture</span>
-        <h3>Language &amp; Folklore</h3>
-        <p data-lang-en="Saurashtri and Kathiawadi Gujarati dialects, community salutations (Jay Gopal), and educational traditions." data-lang-gu="સૌરાષ્ટ્રી-કાઠિયાવાડી ગુજરાતી બોલી, જય ગોપાલ અભિવાદન, લોકપરંપરા અને શૈક્ષણિક મૂલ્યો.">Saurashtri and Kathiawadi Gujarati dialects, community salutations (Jay Gopal), and educational traditions.</p>
-        <a href="cultural-heritage.html" class="read-article-link">Read Chapter →</a>
-      </div>
+      <article style="background:var(--surface-card);border:1px solid var(--border-subtle);border-top:3px solid var(--maroon);padding:1.35rem;border-radius:4px;">
+        <span class="epistemic-badge epistemic-interpretation">Epistemology</span>
+        <h3 style="font-family:var(--font-heading);font-size:1.35rem;margin:0.5rem 0;"><a href="sources.html" style="color:var(--temple-brown);text-decoration:none;">5. Sources &amp; Methodology</a></h3>
+        <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.6;" data-en="Academic criteria for distinguishing verifiable epigraphy and census records from oral memory and Puranic narratives." data-gu="શિલાલેખો, ગેઝેટિયરો અને લોકસ્મૃતિ વચ્ચે વૈજ્ઞાનિક ભેદરેખા રાખવાની સંશોધન પદ્ધતિ."></p>
+        <a href="sources.html" style="color:var(--saffron);font-weight:600;font-size:0.84rem;text-decoration:none;" data-en="Read Article →" data-gu="વિગતે વાંચો →">Read Article →</a>
+      </article>
 
-      <div class="topic-card">
-        <span class="topic-card-kicker">Society</span>
-        <h3>Customs &amp; Livelihood</h3>
-        <p data-lang-en="Sixteen Vedic samskaras, marriage customs, community endogamy, transition to agriculture and courier networks." data-lang-gu="સોળ સંસ્કારો, લગ્ન પ્રથા, જ્ઞાતિ અંતર્લગ્ન, કૃષિ અને આંગડિયા-કુરિયર વ્યવસાય.">Sixteen Vedic samskaras, marriage customs, community endogamy, transition to agriculture and courier networks.</p>
-        <a href="customs-and-practices.html" class="read-article-link">Read Chapter →</a>
-      </div>
-
-      <div class="topic-card">
-        <span class="topic-card-kicker">Genealogy</span>
-        <h3>Surnames Directory</h3>
-        <p data-lang-en="Searchable directory of community surnames (Shiyani, Mokariya, Odedara, Joshi, Tukadiya, etc.), gotras, and ancestral villages." data-lang-gu="અબોટી બ્રાહ્મણ અટકો (શિયાણી, મોકરિયા, ઓડેદરા, જોશી, તુકડિયા વગેરે), ગોત્ર અને મૂળ ગામોની વિગતવાર યાદી.">Searchable directory of community surnames (Shiyani, Mokariya, Odedara, Joshi, Tukadiya, etc.), gotras, and ancestral villages.</p>
-        <a href="surnames.html" class="read-article-link">Browse Directory →</a>
-      </div>
-
-      <div class="topic-card">
-        <span class="topic-card-kicker">Archives</span>
-        <h3>Historical References</h3>
-        <p data-lang-en="Chronological register of 1228 CE, 1557 CE, 1901 Junagadh Census, and 1920 Enthoven survey citations." data-lang-gu="ઇ.સ. ૧૨૨૮, ૧૫૫૭, ૧૯૦૧ જૂનાગઢ વસ્તી ગણતરી અને ૧૯૨૦ એન્થોવન સર્વેક્ષણના આધારો.">Chronological register of 1228 CE, 1557 CE, 1901 Junagadh Census, and 1920 Enthoven survey citations.</p>
-        <a href="historical-references.html" class="read-article-link">View Records →</a>
-      </div>
-
-      <div class="topic-card">
-        <span class="topic-card-kicker">Q&amp;A</span>
-        <h3>Frequently Asked Questions</h3>
-        <p data-lang-en="Clear, evidence-backed answers to the most common historical and demographic questions about Aboti Brahmins." data-lang-gu="અબોટી બ્રાહ્મણ સમુદાયના ઇતિહાસ, વસ્તી અને પરંપરાઓ અંગે વારંવાર પૂછાતા પ્રશ્નોના આધારભૂત ઉત્તરો.">Clear, evidence-backed answers to the most common historical and demographic questions about Aboti Brahmins.</p>
-        <a href="frequently-asked-questions.html" class="read-article-link">Read FAQ →</a>
-      </div>
+      <article style="background:var(--surface-card);border:1px solid var(--border-subtle);border-top:3px solid var(--maroon);padding:1.35rem;border-radius:4px;">
+        <span class="epistemic-badge epistemic-documented">Public Inquiry</span>
+        <h3 style="font-family:var(--font-heading);font-size:1.35rem;margin:0.5rem 0;"><a href="faq.html" style="color:var(--temple-brown);text-decoration:none;">6. Frequently Asked Questions</a></h3>
+        <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.6;" data-en="Objective, evidence-based answers to key inquiries regarding classification, regional distribution, and traditions." data-gu="વર્ગીકરણ, પ્રાદેશિક વસવાટ અને પરંપરાઓ અંગે વારંવાર પૂછાતા પ્રશ્નોના જવાબો."></p>
+        <a href="faq.html" style="color:var(--saffron);font-weight:600;font-size:0.84rem;text-decoration:none;" data-en="Read Article →" data-gu="વિગતે વાંચો →">Read Article →</a>
+      </article>
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="footer-grid">
-      <div class="footer-col">
-        <h4>AbotiBrahmin Encyclopedia</h4>
-        <p style="font-size:0.85rem;line-height:1.6;color:#D8CCBA;" data-lang-en="An independent digital archive devoted to preserving and documenting the history, traditions, and culture of the Aboti Brahmin community of Dwarka, Porbandar, and Saurashtra." data-lang-gu="દ્વારકા, પોરબંદર અને સૌરાષ્ટ્રના અબોટી બ્રાહ્મણ સમુદાયના ઇતિહાસ, પરંપરા અને સંસ્કૃતિના દસ્તાવેજીકરણ માટે સમર્પિત સ્વતંત્ર ડિજિટલ અભિલેખાગાર.">An independent digital archive devoted to preserving and documenting the history, traditions, and culture of the Aboti Brahmin community of Dwarka, Porbandar, and Saurashtra.</p>
+      <div>
+        <h4 style="color:var(--gold);margin:0 0 0.75rem;">AbotiBrahmin Encyclopedia</h4>
+        <p style="font-size:0.82rem;line-height:1.6;color:#D8CCBA;" data-en="An independent, non-commercial digital knowledge archive dedicated to the verified cultural, historical, and genealogical documentation of the Aboti Brahmin community of Gujarat and Rajasthan." data-gu="ગુજરાત અને રાજસ્થાનના અબોટી બ્રાહ્મણ સમુદાયના ઇતિહાસ, સંસ્કૃતિ અને વંશાવળીના નિષ્પક્ષ દસ્તાવેજીકરણ માટે સમર્પિત સ્વતંત્ર ડિજિટલ જ્ઞાનકોશ."></p>
       </div>
-      <div class="footer-col">
-        <h4>Articles</h4>
-        <ul class="footer-links">
-          <li><a href="history.html">History &amp; Origins</a></li>
-          <li><a href="dwarka.html">Dwarka Heritage</a></li>
-          <li><a href="religious-traditions.html">Religious Traditions</a></li>
-          <li><a href="surnames.html">Surnames Directory</a></li>
+      <div>
+        <h4 style="color:var(--gold);margin:0 0 0.75rem;" data-en="Core Pages" data-gu="મુખ્ય પૃષ્ઠો">Core Pages</h4>
+        <ul style="list-style:none;padding:0;margin:0;font-size:0.83rem;line-height:1.8;">
+          <li><a href="index.html" style="color:#D8CCBA;text-decoration:none;">Home / મુખપૃષ્ઠ</a></li>
+          <li><a href="history.html" style="color:#D8CCBA;text-decoration:none;">History / ઇતિહાસ</a></li>
+          <li><a href="dwarka.html" style="color:#D8CCBA;text-decoration:none;">Dwarka Context / દ્વારકા</a></li>
+          <li><a href="surnames.html" style="color:#D8CCBA;text-decoration:none;">Surnames / અટક સૂચિ</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Research</h4>
-        <ul class="footer-links">
-          <li><a href="historical-references.html">Historical Records</a></li>
-          <li><a href="books-and-archives.html">Archives &amp; Books</a></li>
-          <li><a href="sources.html">Bibliography &amp; Sources</a></li>
-          <li><a href="about.html">About &amp; Methodology</a></li>
+      <div>
+        <h4 style="color:var(--gold);margin:0 0 0.75rem;" data-en="Documentation" data-gu="દસ્તાવેજીકરણ">Documentation</h4>
+        <ul style="list-style:none;padding:0;margin:0;font-size:0.83rem;line-height:1.8;">
+          <li><a href="historical-records.html" style="color:#D8CCBA;text-decoration:none;">Historical Records / અભિલેખ</a></li>
+          <li><a href="places.html" style="color:#D8CCBA;text-decoration:none;">Places / ગામો અને તીર્થ</a></li>
+          <li><a href="sources.html" style="color:#D8CCBA;text-decoration:none;">Sources &amp; References / સંદર્ભ</a></li>
+          <li><a href="assets/images/IMAGE-CREDITS.md" style="color:#D8CCBA;text-decoration:none;">Image Credits / તસવીર લાયસન્સ</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Legal &amp; Access</h4>
-        <ul class="footer-links">
-          <li><a href="privacy.html">Privacy Policy</a></li>
-          <li><a href="contact.html">Contact &amp; Corrections</a></li>
-          <li><a href="sitemap.xml">XML Sitemap</a></li>
-          <li><a href="404.html">404 Error Page</a></li>
-        </ul>
+      <div>
+        <h4 style="color:var(--gold);margin:0 0 0.75rem;" data-en="Open Research" data-gu="ખુલ્લું સંશોધન">Open Research</h4>
+        <p style="font-size:0.82rem;line-height:1.6;color:#D8CCBA;" data-en="Hosted statically on GitHub Pages. Semantic HTML5, WCAG accessible, zero trackers." data-gu="ગિટહબ પેજીસ પર સ્થિર હોસ્ટિંગ. સંપૂર્ણ એક્સેસિબલ અને સુરક્ષિત."></p>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 AbotiBrahmin Digital Heritage Archive. Built for free GitHub Pages hosting.</span>
-      <span>Documented with academic neutrality &amp; cultural integrity.</span>
+    <div style="max-width:1360px;margin:1.5rem auto 0;display:flex;justify-content:space-between;font-size:0.78rem;color:#B2A492;">
+      <span>© 2026 AbotiBrahmin Heritage Knowledge Project.</span>
+      <span>Published under Creative Commons Attribution-ShareAlike 4.0.</span>
     </div>
   </footer>
-
-  <button type="button" class="back-to-top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Back to top" aria-label="Back to top">↑</button>
 
   <script src="assets/js/main.js"></script>
 </body>
