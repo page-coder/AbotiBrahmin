@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://page-coder.github.io/AbotiBrahmin/</loc>
+    <loc>https://page-coder.github.io/AbotiBrahmin/index.html</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://page-coder.github.io/AbotiBrahmin/" />
-    <xhtml:link rel="alternate" hreflang="gu" href="https://page-coder.github.io/AbotiBrahmin/" />
   </url>
   <url>
     <loc>https://page-coder.github.io/AbotiBrahmin/about.html</loc>
@@ -22,31 +19,19 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://page-coder.github.io/AbotiBrahmin/origins.html</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://page-coder.github.io/AbotiBrahmin/dwarka.html</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://page-coder.github.io/AbotiBrahmin/religious-traditions.html</loc>
+    <loc>https://page-coder.github.io/AbotiBrahmin/culture.html</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://page-coder.github.io/AbotiBrahmin/cultural-heritage.html</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://page-coder.github.io/AbotiBrahmin/customs-and-practices.html</loc>
+    <loc>https://page-coder.github.io/AbotiBrahmin/traditions.html</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -58,39 +43,27 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://page-coder.github.io/AbotiBrahmin/historical-references.html</loc>
+    <loc>https://page-coder.github.io/AbotiBrahmin/historical-records.html</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://page-coder.github.io/AbotiBrahmin/books-and-archives.html</loc>
+    <loc>https://page-coder.github.io/AbotiBrahmin/places.html</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://page-coder.github.io/AbotiBrahmin/faq.html</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://page-coder.github.io/AbotiBrahmin/frequently-asked-questions.html</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://page-coder.github.io/AbotiBrahmin/sources.html</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://page-coder.github.io/AbotiBrahmin/contact.html</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://page-coder.github.io/AbotiBrahmin/privacy.html</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.7</priority>
   </url>
 </urlset>
