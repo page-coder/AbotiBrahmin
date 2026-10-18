@@ -1,0 +1,29 @@
+{
+  "name": "AbotiBrahmin Heritage Encyclopedia",
+  "short_name": "AbotiBrahmin",
+  "description": "Bilingual English–Gujarati encyclopedia of Aboti Brahmin heritage.",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "lang": "en",
+  "background_color": "#F5EFE3",
+  "theme_color": "#54252B",
+  "icons": [
+    {
+      "src": "assets/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
