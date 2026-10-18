@@ -1,332 +1,125 @@
 /**
- * AbotiBrahmin Encyclopedia — Client-side Navigation, Search, and Bilingual UI
+ * AbotiBrahmin Encyclopedia — Client-Side Bilingual Engine & Index Search
  */
-
-const SITE_SEARCH_INDEX = [
-  {
-    titleEn: "Community Overview",
-    titleGu: "સમુદાય પરિચય અને વિહંગાવલોકન",
-    url: "index.html",
-    categoryEn: "Overview",
-    categoryGu: "પરિચય",
-    summaryEn: "Introduction to Aboti Brahmin terminology, regional distribution in Saurashtra and Dwarka, and overview of traditions.",
-    summaryGu: "અબોટી બ્રાહ્મણ શબ્દાવલી, સૌરાષ્ટ્ર અને દ્વારકામાં પ્રાદેશિક વિતરણ અને પરંપરાઓનો પરિચય."
-  },
-  {
-    titleEn: "History and Origins",
-    titleGu: "ઇતિહાસ અને ઉત્પત્તિના સંદર્ભો",
-    url: "history.html",
-    categoryEn: "History",
-    categoryGu: "ઇતિહાસ",
-    summaryEn: "Medieval 1228 CE Rajasthan records, migration from Dvaravati, 16th-century temple records, and Pancha-Gauda classification.",
-    summaryGu: "ઇ.સ. ૧૨૨૮ રાજસ્થાન દસ્તાવેજો, દ્વારવતીથી સ્થળાંતર, ૧૬મી સદીના મંદિર વહીવટી દસ્તાવેજો અને પંચ-ગૌડ વર્ગીકરણ."
-  },
-  {
-    titleEn: "Ancestry and Historical Origins",
-    titleGu: "પૂર્વજો અને ઉત્પત્તિ પરંપરા",
-    url: "origins.html",
-    categoryEn: "Origins",
-    categoryGu: "ઉત્પત્તિ",
-    summaryEn: "Bhagwan Parshuram heritage, Shrimali and Sakaldwipiya connections, and distinction between oral memory and epigraphy.",
-    summaryGu: "ભગવાન પરશુરામ વંશાવળી, શ્રીમાળી અને શાકદ્વીપીય સંબંધો તથા મૌખિક અને દસ્તાવેજી ઇતિહાસ વચ્ચેનો તફાવત."
-  },
-  {
-    titleEn: "Dwarka and Sacred Geography",
-    titleGu: "દ્વારકા અને પવિત્ર ભૂગોળ",
-    url: "dwarka.html",
-    categoryEn: "Geography",
-    categoryGu: "ભૂગોળ",
-    summaryEn: "Dwarkadhish Temple (Jagat Mandir), Gomti Ghat, Bet Dwarka, Shravana Janmashtami puja, and pilgrim vadi.",
-    summaryGu: "દ્વારકાધીશ જગત મંદિર, ગોમતી ઘાટ, બેટ દ્વારકા, જન્માષ્ટમી સેવા-પૂજા અને અબોટી બ્રાહ્મણ વાડી."
-  },
-  {
-    titleEn: "Religious Traditions & Worship",
-    titleGu: "ધાર્મિક પરંપરાઓ અને ઉપાસના",
-    url: "religious-traditions.html",
-    categoryEn: "Traditions",
-    categoryGu: "પરંપરા",
-    summaryEn: "Vaishnavism, Gopal Upasana, Kuldevi veneration (Chamunda, Momai, Harsiddhi), and annual festive calendars.",
-    summaryGu: "વૈષ્ણવ ભક્તિ, ગોપાલ ઉપાસના, કુળદેવી પૂજા (ચામુંડા, મોમાઈ, હરસિદ્ધિ) અને તહેવારો."
-  },
-  {
-    titleEn: "Cultural Heritage & Language",
-    titleGu: "સાંસ્કૃતિક વારસો અને ભાષા",
-    url: "cultural-heritage.html",
-    categoryEn: "Culture",
-    categoryGu: "સંસ્કૃતિ",
-    summaryEn: "Saurashtri and Kathiawadi Gujarati dialects, community salutations, folklore, and educational values.",
-    summaryGu: "સૌરાષ્ટ્રી-કાઠિયાવાડી ગુજરાતી બોલી, જય ગોપાલ અભિવાદન, લોકપરંપરા અને શૈક્ષણિક મૂલ્યો."
-  },
-  {
-    titleEn: "Customs, Samskaras & Livelihood",
-    titleGu: "સામાજિક રીત-રિવાજો અને આજીવિકા",
-    url: "customs-and-practices.html",
-    categoryEn: "Customs",
-    categoryGu: "રિવાજો",
-    summaryEn: "Sixteen Vedic samskaras, marriage customs, community endogamy, transition to agriculture and courier networks.",
-    summaryGu: "સોળ સંસ્કારો, લગ્ન પ્રથા, જ્ઞાતિ અંતર્લગ્ન, કૃષિ અને આંગડિયા-કુરિયર વ્યવસાય."
-  },
-  {
-    titleEn: "Surnames and Gotras Directory",
-    titleGu: "અટકો અને ગોત્ર નિર્દેશિકા",
-    url: "surnames.html",
-    categoryEn: "Genealogy",
-    categoryGu: "વંશાવળી",
-    summaryEn: "Searchable directory of community surnames (Shiyani, Mokariya, Odedara, Joshi, Tukadiya, etc.), gotras, and ancestral villages.",
-    summaryGu: "અબોટી બ્રાહ્મણ અટકો (શિયાણી, મોકરિયા, ઓડેદરા, જોશી, તુકડિયા વગેરે), ગોત્ર અને મૂળ ગામોની વિગતવાર યાદી."
-  },
-  {
-    titleEn: "Historical References & Epigraphs",
-    titleGu: "ઐતિહાસિક દસ્તાવેજો અને શિલાલેખો",
-    url: "historical-references.html",
-    categoryEn: "Archives",
-    categoryGu: "દસ્તાવેજો",
-    summaryEn: "Chronological register of 1228 CE, 1557 CE, 1901 Junagadh Census, and 1920 Enthoven survey citations.",
-    summaryGu: "ઇ.સ. ૧૨૨૮, ૧૫૫૭, ૧૯૦૧ જૂનાગઢ વસ્તી ગણતરી અને ૧૯૨૦ એન્થોવન સર્વેક્ષણના આધારો."
-  },
-  {
-    titleEn: "Books, Archives & Bibliography",
-    titleGu: "પુસ્તકો, સંદર્ભગ્રંથો અને સંગ્રહાલયો",
-    url: "books-and-archives.html",
-    categoryEn: "Bibliography",
-    categoryGu: "સંદર્ભગ્રંથો",
-    summaryEn: "Comprehensive catalog of colonial gazetteers, government reports, academic monographs, and community registers.",
-    summaryGu: "ગેઝેટિયરો, સરકારી અહેવાલો, સંશોધન ગ્રંથો અને સામાજિક પ્રકાશનોની સંપૂર્ણ સંદર્ભ સૂચિ."
-  },
-  {
-    titleEn: "Frequently Asked Questions",
-    titleGu: "વારંવાર પૂછાતા પ્રશ્નો (FAQ)",
-    url: "frequently-asked-questions.html",
-    categoryEn: "FAQ",
-    categoryGu: "પ્રશ્નોત્તરી",
-    summaryEn: "Clear, evidence-backed answers to the most common historical and demographic questions about Aboti Brahmins.",
-    summaryGu: "અબોટી બ્રાહ્મણ સમુદાયના ઇતિહાસ, વસ્તી અને પરંપરાઓ અંગે વારંવાર પૂછાતા પ્રશ્નોના આધારભૂત ઉત્તરો."
-  },
-  {
-    titleEn: "Scholarly Sources & Citations",
-    titleGu: "સંદર્ભ સ્ત્રોતો અને પ્રમાણભૂત પુરાવા",
-    url: "sources.html",
-    categoryEn: "Citations",
-    categoryGu: "સ્ત્રોતો",
-    summaryEn: "Numbered bibliographic citations, primary and secondary sources, and epistemic evaluation criteria.",
-    summaryGu: "ક્રમબદ્ધ ગ્રંથસૂચિ, પ્રાથમિક અને ગૌણ સ્ત્રોતો તથા સંશોધન પદ્ધતિના ધોરણો."
-  }
+const ENCYCLOPEDIA_INDEX = [
+  { id: "history", titleEn: "Historical Overview & Medieval Records", titleGu: "ઐતિહાસિક વિહંગાવલોકન અને મધ્યકાલીન પુરાવા", url: "history.html", tags: ["1228 CE", "Rajasthan", "Dvaravati", "Dwarka", "Solanki", "Chaulukya", "Inscriptions"] },
+  { id: "dwarka", titleEn: "Dwarka, Gomti & Jagat Mandir Context", titleGu: "દ્વારકા, ગોમતી ઘાટ અને જગત મંદિર સંદર્ભ", url: "dwarka.html", tags: ["Dwarkadhish", "Jagat Mandir", "Gomti", "Janmashtami", "Puja", "Pushtimarg", "Gugali"] },
+  { id: "culture", titleEn: "Cultural Heritage, Livelihood & Values", titleGu: "સાંસ્કૃતિક વારસો, મૂલ્યો અને સમાજજીવન", url: "culture.html", tags: ["Jay Gopal", "Parshuram", "Agriculture", "Angadia", "Khedut", "Courier", "Dietary", "Vegetarianism"] },
+  { id: "traditions", titleEn: "Rituals, Vrats, Pujas & Social Custom", titleGu: "ધાર્મિક વિધિઓ, વ્રતો અને પારિવારિક સંસ્કાર", url: "traditions.html", tags: ["Yajnopavita", "Janmashtami", "Shravan", "Kuldevi", "Gotra", "Vedic", "Vivaha"] },
+  { id: "surnames", titleEn: "Surnames, Family Lineages & Gotras", titleGu: "અટક, શાખાઓ અને ગોત્ર સૂચિ", url: "surnames.html", tags: ["Shiyani", "Mokariya", "Odedara", "Joshi", "Kuchhadiya", "Tukadiya", "Bhuva", "Borichiya", "Baleja", "Goriya", "Kothari", "Mehta", "Bhargava", "Kashyapa", "Vatsa", "Sandilya"] },
+  { id: "historical-records", titleEn: "Documentary Records, Gazetteers & Epigraphy", titleGu: "દસ્તાવેજી પુરાવા, ગેઝેટિયરો અને અભિલેખો", url: "historical-records.html", tags: ["Census 1901", "Junagadh", "Enthoven", "Bombay Gazetteer", "Tamrapatra", "Copper Plates", "Barot"] },
+  { id: "places", titleEn: "Sacred Geography, Villages & Pilgrim Sites", titleGu: "પવિત્ર તીર્થક્ષેત્રો અને સૌરાષ્ટ્રના ગામો", url: "places.html", tags: ["Dwarka", "Bet Dwarka", "Ranavav", "Porbandar", "Bhod", "Mokar", "Rana Vadvala", "Tukda Gosa", "Vanana", "Sheel", "Keshod", "Junagadh"] },
+  { id: "about", titleEn: "About the Encyclopedia & Objectives", titleGu: "જ્ઞાનકોશ પરિચય અને ઉદ્દેશ્યો", url: "about.html", tags: ["Digital Archive", "Methodology", "Ethics", "Preservation", "Open Access"] },
+  { id: "sources", titleEn: "Primary Sources & Research Methodology", titleGu: "સંદર્ભ ગ્રંથો અને સંશોધન પદ્ધતિ", url: "sources.html", tags: ["Bibliography", "Citations", "Om Prakash", "Enthoven", "CMPA", "GIZ"] },
+  { id: "faq", titleEn: "Frequently Asked Questions", titleGu: "વારંવાર પૂછાતા પ્રશ્નો (FAQ)", url: "faq.html", tags: ["Gotra", "History", "Origins", "Dwarka seva", "Panch-Dravida"] }
 ];
 
-// State
-let currentLang = localStorage.getItem("aboti_lang") || "en";
-let currentTheme = localStorage.getItem("aboti_theme") || "light";
-let currentFontSize = localStorage.getItem("aboti_fontsize") || "standard";
+let currentLang = localStorage.getItem("abotibrahmin_lang") || "en";
 
-document.addEventListener("DOMContentLoaded", () => {
-  initTheme();
-  initLanguage();
-  initFontSize();
-  initReadingProgress();
-  initSearch();
-  initMobileMenu();
-  highlightActiveNav();
-});
-
-function initTheme() {
-  document.documentElement.setAttribute("data-theme", currentTheme);
-  const themeBtn = document.getElementById("themeToggleBtn");
-  if (themeBtn) {
-    themeBtn.textContent = currentTheme === "dark" ? "☼ Light Mode" : "☾ Dark Mode";
-  }
+function initApp() {
+  setLanguage(currentLang, false);
+  setupScrollProgress();
+  setupSearch();
+  setupTheme();
 }
 
-function toggleTheme() {
-  currentTheme = currentTheme === "dark" ? "light" : "dark";
-  localStorage.setItem("aboti_theme", currentTheme);
-  initTheme();
-}
+function setLanguage(lang, save = true) {
+  currentLang = lang;
+  if (save) localStorage.setItem("abotibrahmin_lang", lang);
+  document.documentElement.setAttribute("lang", lang);
+  
+  document.querySelectorAll("[data-en]").forEach(el => {
+    el.innerHTML = lang === "gu" ? el.getAttribute("data-gu") : el.getAttribute("data-en");
+  });
 
-function initLanguage() {
-  document.documentElement.setAttribute("lang", currentLang);
   const btnEn = document.getElementById("langBtnEn");
   const btnGu = document.getElementById("langBtnGu");
-
   if (btnEn && btnGu) {
-    if (currentLang === "gu") {
-      btnGu.classList.add("active");
-      btnEn.classList.remove("active");
-    } else {
-      btnEn.classList.add("active");
-      btnGu.classList.remove("active");
-    }
-  }
-
-  // Toggle visibility of language-specific spans
-  document.querySelectorAll("[data-lang-en]").forEach(el => {
-    if (currentLang === "gu" && el.getAttribute("data-lang-gu")) {
-      el.textContent = el.getAttribute("data-lang-gu");
-    } else {
-      el.textContent = el.getAttribute("data-lang-en");
-    }
-  });
-
-  document.querySelectorAll(".lang-block-en").forEach(el => {
-    el.style.display = currentLang === "en" ? "block" : "none";
-  });
-  document.querySelectorAll(".lang-block-gu").forEach(el => {
-    el.style.display = currentLang === "gu" ? "block" : "none";
-  });
-}
-
-function setLanguage(lang) {
-  currentLang = lang;
-  localStorage.setItem("aboti_lang", currentLang);
-  initLanguage();
-}
-
-function initFontSize() {
-  const root = document.documentElement;
-  if (currentFontSize === "small") root.style.fontSize = "14.5px";
-  else if (currentFontSize === "large") root.style.fontSize = "17.5px";
-  else root.style.fontSize = "16px";
-
-  ["fontBtnSm", "fontBtnMd", "fontBtnLg"].forEach(id => {
-    const btn = document.getElementById(id);
-    if (btn) btn.classList.remove("active");
-  });
-
-  if (currentFontSize === "small" && document.getElementById("fontBtnSm")) {
-    document.getElementById("fontBtnSm").classList.add("active");
-  } else if (currentFontSize === "large" && document.getElementById("fontBtnLg")) {
-    document.getElementById("fontBtnLg").classList.add("active");
-  } else if (document.getElementById("fontBtnMd")) {
-    document.getElementById("fontBtnMd").classList.add("active");
+    btnEn.classList.toggle("active", lang === "en");
+    btnGu.classList.toggle("active", lang === "gu");
   }
 }
 
-function setFontSize(size) {
-  currentFontSize = size;
-  localStorage.setItem("aboti_fontsize", currentFontSize);
-  initFontSize();
-}
-
-function initReadingProgress() {
+function setupScrollProgress() {
   const bar = document.getElementById("readingProgressBar");
   if (!bar) return;
   window.addEventListener("scroll", () => {
-    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = totalHeight > 0 ? (window.pageYOffset / totalHeight) * 100 : 0;
-    bar.style.width = Math.min(100, Math.max(0, progress)) + "%";
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = total > 0 ? (window.pageYOffset / total) * 100 : 0;
+    bar.style.width = `${progress}%`;
   });
 }
 
-function initMobileMenu() {
-  const toggle = document.getElementById("mobileMenuBtn");
-  const nav = document.getElementById("mainNavContainer");
-  if (toggle && nav) {
-    toggle.addEventListener("click", () => {
-      nav.classList.toggle("mobile-open");
-    });
-  }
-}
-
-function highlightActiveNav() {
-  const currentPath = window.location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll(".nav-link").forEach(link => {
-    const href = link.getAttribute("href");
-    if (href === currentPath) {
-      link.classList.add("active");
-    } else {
-      link.classList.remove("active");
-    }
-  });
-}
-
-/* Client-Side Search Modal / Dropdown */
-function initSearch() {
-  const form = document.getElementById("headerSearchForm");
+function setupSearch() {
   const input = document.getElementById("headerSearchInput");
+  const form = document.getElementById("headerSearchForm");
   if (!form || !input) return;
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const query = input.value.trim().toLowerCase();
-    if (!query) return;
-
-    performSearch(query);
+    executeSearch(input.value.trim());
   });
 }
 
-function performSearch(query) {
-  const results = SITE_SEARCH_INDEX.filter(item => {
-    return item.titleEn.toLowerCase().includes(query) ||
-           item.titleGu.toLowerCase().includes(query) ||
-           item.summaryEn.toLowerCase().includes(query) ||
-           item.summaryGu.toLowerCase().includes(query);
+function executeSearch(query) {
+  if (!query) return;
+  const q = query.toLowerCase();
+  const results = ENCYCLOPEDIA_INDEX.filter(item => {
+    return item.titleEn.toLowerCase().includes(q) ||
+           item.titleGu.includes(q) ||
+           item.tags.some(t => t.toLowerCase().includes(q));
   });
 
-  displaySearchResults(query, results);
+  renderSearchResults(query, results);
 }
 
-function displaySearchResults(query, results) {
-  let modalBackdrop = document.getElementById("searchModalBackdrop");
-  if (!modalBackdrop) {
-    modalBackdrop = document.createElement("div");
-    modalBackdrop.id = "searchModalBackdrop";
-    modalBackdrop.style.position = "fixed";
-    modalBackdrop.style.inset = "0";
-    modalBackdrop.style.background = "rgba(20, 12, 10, 0.75)";
-    modalBackdrop.style.display = "flex";
-    modalBackdrop.style.alignItems = "center";
-    modalBackdrop.style.justifyContent = "center";
-    modalBackdrop.style.zIndex = "1200";
-    modalBackdrop.style.padding = "1rem";
-    modalBackdrop.innerHTML = `
-      <div style="background:var(--surface-card);border:2px solid var(--gold);border-radius:6px;max-width:680px;width:100%;max-height:85vh;overflow-y:auto;padding:1.75rem;box-shadow:0 16px 40px rgba(0,0,0,0.5);">
-        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--gold);padding-bottom:0.65rem;margin-bottom:1rem;">
-          <h3 id="searchModalHeader" style="font-family:var(--font-heading);font-size:1.5rem;margin:0;color:var(--temple-brown);">Search Results</h3>
-          <button type="button" class="read-article-link" onclick="closeSearchModal()">✕ Close</button>
+function renderSearchResults(query, results) {
+  let modal = document.getElementById("searchModal");
+  if (!modal) {
+    modal = document.createElement("div");
+    modal.id = "searchModal";
+    modal.className = "modal-backdrop open";
+    modal.innerHTML = `
+      <div class="modal-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--gold);padding-bottom:0.5rem;margin-bottom:1rem;">
+          <h3 id="searchModalHeading" style="margin:0;font-family:var(--font-heading);font-size:1.4rem;"></h3>
+          <button type="button" class="strip-btn" style="background:var(--maroon);color:#fff;" onclick="document.getElementById('searchModal').remove()">✕</button>
         </div>
-        <div id="searchModalContent"></div>
+        <div id="searchResultsList"></div>
       </div>
     `;
-    document.body.appendChild(modalBackdrop);
+    document.body.appendChild(modal);
   }
 
-  const content = document.getElementById("searchModalContent");
-  modalBackdrop.style.display = "flex";
+  const heading = document.getElementById("searchModalHeading");
+  const list = document.getElementById("searchResultsList");
+  heading.innerText = currentLang === "gu" ? `શોધ પરિણામો: "${query}"` : `Search Results for: "${query}"`;
 
   if (results.length === 0) {
-    content.innerHTML = `
-      <p style="color:var(--text-secondary);">No encyclopedia pages matched <strong>"${escapeHtml(query)}"</strong>. Try broader terms such as <em>Dwarka</em>, <em>Parshuram</em>, <em>Gotra</em>, <em>Junagadh</em>, or <em>Surnames</em>.</p>
-    `;
+    list.innerHTML = `<p style="padding:1rem 0;color:var(--text-secondary);">${currentLang === "gu" ? "કોઈ મેળ ખાતા લેખ મળ્યા નથી." : "No matching encyclopedia articles found. Try another term such as 'Dwarka', 'Shiyani', or 'Gotra'."}</p>`;
     return;
   }
 
-  content.innerHTML = `
-    <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:1rem;">Found ${results.length} article(s) matching <strong>"${escapeHtml(query)}"</strong>:</p>
-    <div style="display:flex;flex-direction:column;gap:1rem;">
-      ${results.map(r => `
-        <div style="border:1px solid var(--border-subtle);border-left:3px solid var(--maroon);padding:0.85rem;border-radius:4px;background:var(--surface-elevated);">
-          <div style="font-size:0.72rem;text-transform:uppercase;color:var(--saffron);font-weight:600;margin-bottom:0.25rem;">
-            ${currentLang === 'gu' ? r.categoryGu : r.categoryEn}
-          </div>
-          <h4 style="margin:0 0 0.35rem 0;font-family:var(--font-heading);font-size:1.25rem;">
-            <a href="${r.url}" style="color:var(--temple-brown);text-decoration:none;">${currentLang === 'gu' ? r.titleGu : r.titleEn}</a>
-          </h4>
-          <p style="margin:0 0 0.5rem 0;font-size:0.88rem;color:var(--text-secondary);line-height:1.5;">
-            ${currentLang === 'gu' ? r.summaryGu : r.summaryEn}
-          </p>
-          <a href="${r.url}" class="read-article-link" style="padding:0.25rem 0.6rem;font-size:0.75rem;">Open Article →</a>
-        </div>
-      `).join("")}
+  list.innerHTML = results.map(r => `
+    <div style="margin-bottom:0.85rem;padding:0.75rem;background:var(--surface-elevated);border-left:3px solid var(--maroon);border-radius:3px;">
+      <a href="${r.url}" style="text-decoration:none;color:var(--maroon);font-weight:600;font-size:1.05rem;display:block;">
+        ${currentLang === "gu" ? r.titleGu : r.titleEn}
+      </a>
+      <span style="font-size:0.78rem;color:var(--text-secondary);">Keywords: ${r.tags.slice(0, 5).join(", ")}</span>
     </div>
-  `;
+  `).join("");
 }
 
-function closeSearchModal() {
-  const modal = document.getElementById("searchModalBackdrop");
-  if (modal) modal.style.display = "none";
+function setupTheme() {
+  const saved = localStorage.getItem("abotibrahmin_theme");
+  if (saved === "dark") document.documentElement.setAttribute("data-theme", "dark");
 }
 
-function escapeHtml(str) {
-  return str.replace(/[&<>'"]/g, 
-    tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
-  );
+function toggleTheme() {
+  const current = document.documentElement.getAttribute("data-theme");
+  const next = current === "dark" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", next);
+  localStorage.setItem("abotibrahmin_theme", next);
 }
+
+document.addEventListener("DOMContentLoaded", initApp);
