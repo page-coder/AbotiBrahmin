@@ -1394,3 +1394,5 @@ button.strip-btn { font-family: var(--font-ui); }
 @media (max-width: 520px) { .brand-main { font-size: 1.45rem; } .brand-sub { font-size: .62rem; } }
 .header-inner { flex-wrap: wrap; }
 @media (max-width: 1180px) { .main-nav { order: 3; flex-basis: 100%; justify-content: flex-start; } }
+/* Header scrolls with the page instead of staying fixed */
+.site-header { position: static; }
