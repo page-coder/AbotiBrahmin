@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://page-coder.github.io/AbotiBrahmin/sitemap.xml
+Sitemap: https://github.io
+Sitemap: https://github.io
